@@ -8,6 +8,13 @@ import java.net.URL
 import java.net.URLEncoder
 import java.util.Date
 
+
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+
+
+
 fun Long.toText(isMillis: Boolean = false): String {
     var totalSeconds = this
     if (isMillis) totalSeconds /= 1000
@@ -51,6 +58,17 @@ fun generateQueryUrl(query: String, searchType: SearchType): String = buildStrin
 
 fun formatRelativeTime(timestampMillis: Long): String {
     return PrettyTime(appLocale).format(Date(timestampMillis))
+}
+
+fun formatAbsoluteTime(
+    timestampMillis: Long,
+    pattern: String = "yyyy/MM/dd",
+    zoneId: ZoneId = ZoneId.systemDefault()
+): String {
+    val formatter = DateTimeFormatter.ofPattern(pattern, appLocale)
+    return Instant.ofEpochMilli(timestampMillis)
+        .atZone(zoneId)
+        .format(formatter)
 }
 
 fun getQueryValue(url: String, key: String): String? {
