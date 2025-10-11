@@ -47,4 +47,26 @@ object SharedContext {
     fun toggleShowPlayQueueVisibility() {
         _playQueueVisibility.value = !_playQueueVisibility.value
     }
+
+    // Image Viewer State
+    data class ImageViewerState(
+        val isVisible: Boolean = false,
+        val urls: List<String> = emptyList(),
+        val initialPage: Int = 0
+    )
+
+    private val _imageViewerState = MutableStateFlow(ImageViewerState())
+    val imageViewerState: StateFlow<ImageViewerState> = _imageViewerState.asStateFlow()
+
+    fun showImageViewer(urls: List<String>, initialPage: Int = 0) {
+        _imageViewerState.value = ImageViewerState(
+            isVisible = true,
+            urls = urls,
+            initialPage = initialPage
+        )
+    }
+
+    fun hideImageViewer() {
+        _imageViewerState.value = ImageViewerState()
+    }
 }
