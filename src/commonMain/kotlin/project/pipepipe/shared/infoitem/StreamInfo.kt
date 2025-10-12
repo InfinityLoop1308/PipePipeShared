@@ -29,6 +29,7 @@ data class StreamInfo(
 //    var metaInfo: List<MetaInfotmp>? = null,
     var previewFrames: List<Frameset>? = null,
     var isRoundPlayStream: Boolean = false,
+    var isPortrait: Boolean = false,
     var startAt: Long? = null,
     var shortFormContent: Boolean = false,
     var thumbnailUrl: String? = null,

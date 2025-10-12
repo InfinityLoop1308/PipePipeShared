@@ -48,6 +48,15 @@ object SharedContext {
         _playQueueVisibility.value = !_playQueueVisibility.value
     }
 
+    private val _isInPipMode = MutableStateFlow(false)
+    val isInPipMode: StateFlow<Boolean> = _isInPipMode.asStateFlow()
+    fun enterPipmode() {
+        _isInPipMode.value = true
+    }
+    fun exitPipMode() {
+        _isInPipMode.value = false
+    }
+
     // Image Viewer State
     data class ImageViewerState(
         val isVisible: Boolean = false,
