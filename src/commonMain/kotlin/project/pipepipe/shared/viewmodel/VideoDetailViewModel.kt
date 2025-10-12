@@ -9,6 +9,7 @@ import project.pipepipe.shared.PlaybackMode
 import project.pipepipe.shared.SharedContext
 import project.pipepipe.shared.database.DatabaseOperations
 import project.pipepipe.shared.helper.FilterHelper
+import project.pipepipe.shared.helper.SettingsManager
 import project.pipepipe.shared.helper.ToastManager
 import project.pipepipe.shared.infoitem.CommentInfo
 import project.pipepipe.shared.infoitem.DanmakuInfo
@@ -47,6 +48,7 @@ class VideoDetailViewModel(val exec: suspend (JobRequest) -> JobResponse<out Inf
         GlobalScope.launch {
             showAsDetailPage()
             SharedContext.updatePlaybackMode(PlaybackMode.AUDIO_ONLY)
+            setDanmakuEnabled(SharedContext.settingsManager.getBoolean("danmaku_enabled", false))
 
             val currentEntry = uiState.value.currentEntry
             if (url == currentEntry?.streamInfo?.url) return@launch
@@ -161,7 +163,12 @@ class VideoDetailViewModel(val exec: suspend (JobRequest) -> JobResponse<out Inf
         setState { it.copy(pageState = VideoDetailPageState.HIDDEN) }
     }
 
+    fun setDanmakuEnabled(enabled: Boolean) {
+        setState { it.copy(danmakuEnabled = enabled) }
+    }
+
     fun toggleDanmaku() {
+        SharedContext.settingsManager.putBoolean("danmaku_enabled", !uiState.value.danmakuEnabled)
         setState { it.copy(danmakuEnabled = !uiState.value.danmakuEnabled) }
     }
 
