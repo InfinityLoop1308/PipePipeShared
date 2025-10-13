@@ -1,6 +1,8 @@
 package project.pipepipe.shared.helper
 
+import com.russhwolf.settings.ObservableSettings
 import com.russhwolf.settings.Settings
+import com.russhwolf.settings.SettingsListener
 import kotlinx.serialization.json.Json
 
 class SettingsManager(private val settings: Settings = Settings()) {
@@ -11,6 +13,29 @@ class SettingsManager(private val settings: Settings = Settings()) {
         private val json = Json { encodeDefaults = true }
     }
 
+    fun addStringListener(key: String, defaultValue: String = "", callback: (String) -> Unit): SettingsListener? {
+        return (settings as? ObservableSettings)?.addStringListener(key, defaultValue, callback)
+    }
+
+    fun addIntListener(key: String, defaultValue: Int = 0, callback: (Int) -> Unit): SettingsListener? {
+        return (settings as? ObservableSettings)?.addIntListener(key, defaultValue, callback)
+    }
+
+    fun addBooleanListener(key: String, defaultValue: Boolean = false, callback: (Boolean) -> Unit): SettingsListener? {
+        return (settings as? ObservableSettings)?.addBooleanListener(key, defaultValue, callback)
+    }
+
+    fun addFloatListener(key: String, defaultValue: Float = 0f, callback: (Float) -> Unit): SettingsListener? {
+        return (settings as? ObservableSettings)?.addFloatListener(key, defaultValue, callback)
+    }
+
+    fun addLongListener(key: String, defaultValue: Long = 0L, callback: (Long) -> Unit): SettingsListener? {
+        return (settings as? ObservableSettings)?.addLongListener(key, defaultValue, callback)
+    }
+
+    fun addDoubleListener(key: String, defaultValue: Double = 0.0, callback: (Double) -> Unit): SettingsListener? {
+        return (settings as? ObservableSettings)?.addDoubleListener(key, defaultValue, callback)
+    }
 
     fun getString(key: String, defaultValue: String = ""): String {
         return settings.getString(key, defaultValue)
