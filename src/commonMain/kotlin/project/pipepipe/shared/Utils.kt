@@ -1,18 +1,8 @@
 package project.pipepipe.shared
 
-import org.ocpsoft.prettytime.PrettyTime
-import project.pipepipe.shared.SharedContext.appLocale
 import project.pipepipe.shared.infoitem.helper.SearchType
 import java.net.URI
-import java.net.URL
 import java.net.URLEncoder
-import java.util.Date
-
-
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
-
 
 
 fun Long.toText(isMillis: Boolean = false): String {
@@ -54,21 +44,6 @@ fun generateQueryUrl(query: String, searchType: SearchType): String = buildStrin
             append(separator).append(it.parameter)
         }
     }
-}
-
-fun formatRelativeTime(timestampMillis: Long): String {
-    return PrettyTime(appLocale).format(Date(timestampMillis))
-}
-
-fun formatAbsoluteTime(
-    timestampMillis: Long,
-    pattern: String = "yyyy/MM/dd",
-    zoneId: ZoneId = ZoneId.systemDefault()
-): String {
-    val formatter = DateTimeFormatter.ofPattern(pattern, appLocale)
-    return Instant.ofEpochMilli(timestampMillis)
-        .atZone(zoneId)
-        .format(formatter)
 }
 
 fun getQueryValue(url: String, key: String): String? {

@@ -39,7 +39,6 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-io-core:0.8.0")
                 implementation("app.cash.sqldelight:runtime:2.1.0")
                 implementation("app.cash.sqldelight:coroutines-extensions:2.1.0")
-                implementation("org.ocpsoft.prettytime:prettytime:5.0.7.Final")
                 implementation("com.fasterxml.jackson.core:jackson-core:2.20.0")
                 implementation("com.fasterxml.jackson.core:jackson-databind:2.20.0")
                 implementation("io.github.reactivecircus.cache4k:cache4k:0.14.0")
