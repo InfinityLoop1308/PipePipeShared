@@ -14,5 +14,6 @@ data class SupportedServiceInfo(
     val suggestionStringPath: Pair<String, String>? = null,
     val suggestionJsonBetween: Pair<String, String>? = null,
     val trendingList: List<String> = emptyList(),
-    val feedFetchInterval: Int = 0
+    val feedFetchInterval: Int = 0,
+    val themeColor: String = "#FFFFFF"
 ): Info
