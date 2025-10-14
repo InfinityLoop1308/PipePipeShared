@@ -5,6 +5,7 @@ import project.pipepipe.database.Subscriptions
 import project.pipepipe.shared.infoitem.ChannelInfo
 import project.pipepipe.shared.infoitem.CommentInfo
 import project.pipepipe.shared.infoitem.DanmakuInfo
+import project.pipepipe.shared.infoitem.Info
 import project.pipepipe.shared.infoitem.PlaylistInfo
 import project.pipepipe.shared.infoitem.SponsorBlockSegmentInfo
 import project.pipepipe.shared.infoitem.StreamInfo
@@ -100,7 +101,7 @@ data class SearchSuggestion(
 
 data class SearchUiState(
     val common: CommonUiState = CommonUiState(),
-    val list: ListUiState<StreamInfo> = ListUiState(),
+    val list: ListUiState<Info> = ListUiState(),
     val searchQuery: String = "",
     val searchSuggestionList: List<SearchSuggestion> = emptyList(),
     val selectedService: SupportedServiceInfo? = null,
