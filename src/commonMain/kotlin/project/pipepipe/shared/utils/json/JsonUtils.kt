@@ -3,7 +3,6 @@ package project.pipepipe.shared.utils.json
 import com.fasterxml.jackson.databind.JsonNode
 import io.ktor.client.statement.*
 import io.ktor.utils.io.charsets.*
-import project.pipepipe.shared.SharedContext
 
 // String methods
 fun JsonNode.requireString(fieldName: String): String {
@@ -190,13 +189,3 @@ fun JsonNode.requireObject(index: Int): JsonNode {
 }
 
 class InvalidJsonResponseException(url: String): Exception(url)
-
-suspend fun HttpResponse.bodyAsJson(fallbackCharset: Charset = Charsets.UTF_8): JsonNode {
-    val textBody = bodyAsText(fallbackCharset)
-    return try{
-        SharedContext.objectMapper.readTree(textBody) } catch (e: Exception) {
-        throw InvalidJsonResponseException(this.request.url.toString())
-    }
-}
-
-fun String.asJson(): JsonNode = SharedContext.objectMapper.readTree(this)
