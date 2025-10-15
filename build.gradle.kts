@@ -70,15 +70,6 @@ android {
     }
 }
 
-sqldelight {
-    databases {
-        create("AppDatabase") {
-            packageName.set("project.pipepipe.database")
-            version = 901
-        }
-    }
-}
-
 publishing {
     repositories {
         maven {
