@@ -459,6 +459,18 @@ SELECT s.* FROM subscriptions s
 INNER JOIN feed_group_subscription_join fgsj ON s.uid = fgsj.subscription_id
 WHERE fgsj.group_id = ?;
 
+selectSubscriptionsByFeedGroupWithThreshold:
+SELECT s.* FROM subscriptions s
+INNER JOIN feed_group_subscription_join fgsj ON s.uid = fgsj.subscription_id
+LEFT JOIN feed_last_updated flu ON s.uid = flu.subscription_id
+WHERE fgsj.group_id = ?
+AND (flu.last_updated IS NULL OR (? - flu.last_updated) > ? * 1000);
+
+selectAllSubscriptionsWithThreshold:
+SELECT s.* FROM subscriptions s
+LEFT JOIN feed_last_updated flu ON s.uid = flu.subscription_id
+WHERE flu.last_updated IS NULL OR (? - flu.last_updated) > ? * 1000;
+
 -- Feed group stream queries
 selectFeedStreamsByGroup:
 SELECT s.*
