@@ -10,6 +10,7 @@ enum class ChannelTabType {
     CHANNELS,
     PLAYLISTS,
     ALBUMS,
+    INFO
 }
 @Serializable
 data class ChannelTabInfo(val url: String, val type: ChannelTabType)
