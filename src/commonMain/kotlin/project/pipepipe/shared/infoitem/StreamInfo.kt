@@ -1,6 +1,5 @@
 package project.pipepipe.shared.infoitem
 
-//import project.pipepipe.shared.infoitem.helper.stream.SubtitlesStream
 import kotlinx.serialization.Serializable
 import project.pipepipe.shared.infoitem.helper.stream.*
 
@@ -8,8 +7,8 @@ import project.pipepipe.shared.infoitem.helper.stream.*
 data class StreamInfo(
     val url: String,
     val serviceId: String,
-    var id: String? = null,
     var name: String? = null,
+
     var streamType: StreamType = StreamType.NONE,
     var uploaderName: String? = null,
     var uploaderUrl: String? = null,
@@ -17,30 +16,31 @@ data class StreamInfo(
     var uploadDate: Long? = null, // timestamp in milliseconds
     var duration: Long? = null, // second
     var viewCount: Long? = null,
-    var likeCount: Long? = null,
-    var dislikeCount: Long? = null,
-    var uploaderSubscriberCount: Long? = null,
-    var staffs: Collection<StaffInfo>? = null,
+    var isShort: Boolean = false,
+    var thumbnailUrl: String? = null,
+    var isPaid: Boolean = false,
+
+    // details page only.
+    // 1. play info
     var dashUrl: String? = null,
     var dashManifest: String?= null,
     var hlsUrl: String? = null,
-    var startPosition: Long? = null,
+    var initialTimestamp: Long? = null,
     var streamSegments: List<StreamSegment>? = null,
-//    var metaInfo: List<MetaInfotmp>? = null,
     var previewFrames: List<Frameset>? = null,
-    var isRoundPlayStream: Boolean = false,
-    var isPortrait: Boolean = false,
+    // 1.1 live info
     var startAt: Long? = null,
-    var shortFormContent: Boolean = false,
-    var thumbnailUrl: String? = null,
+    // 2. details
+    var likeCount: Long? = null,
+    var uploaderSubscriberCount: Long? = null,
+    var isPortrait: Boolean = false,
+    var commentUrl: String? = null,
+    var danmakuUrl: String? = null,
+    var relatedItemUrl: String? = null,
+    var sponsorblockUrl: String? = null,
     var description: Description? = null,
     var tags: List<String>? = null,
-    var stats: Map<String, String>? = null,
-    var isPaid: Boolean = false,
-    var commentInfo: CommentInfo? = null,
-    var danmakuUrl: String? = null,
-    var relatedItemInfo: RelatedItemInfo? = null,
-    var sponsorblockUrl: String? = null,
+    var staffs: Collection<StaffInfo>? = null,
     // local properties
     val progress: Long? = null,
     val joinId: Long? = null,

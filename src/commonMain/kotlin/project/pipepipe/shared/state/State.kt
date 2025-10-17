@@ -25,6 +25,12 @@ data class StreamExtractState(
 ): State
 
 @Serializable
+data class MetaDataExtractState(
+    override val step: Int,
+    val metadata: Map<String, String>
+): State
+
+@Serializable
 data class CookieState(
     override val step: Int,
     val cookieInfo: CookieInfo

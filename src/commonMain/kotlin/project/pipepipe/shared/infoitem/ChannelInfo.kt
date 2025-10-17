@@ -7,8 +7,9 @@ data class ChannelInfo(
     val name: String,
     val serviceId: String,
     var thumbnailUrl: String? = null,
-    var bannerUrl: String? = null,
     var description: String? = null,
     var subscriberCount: Long? = null,
+    // not used if info only
+    var bannerUrl: String? = null,
     var tabs: List<ChannelTabInfo> = emptyList()
 ) : Info

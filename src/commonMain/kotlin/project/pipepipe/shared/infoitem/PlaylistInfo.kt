@@ -11,8 +11,8 @@ data class PlaylistInfo(
     val uploaderName: String? = null,
     var uploaderUrl: String? = null,
     var uploaderAvatarUrl: String? = null,
-    var isUploaderVerified: Boolean? = null,
     var streamCount: Long = 0,
+    // Local properties
     var isPinned: Boolean = false,
     var uid: Long? = null
 ): Info

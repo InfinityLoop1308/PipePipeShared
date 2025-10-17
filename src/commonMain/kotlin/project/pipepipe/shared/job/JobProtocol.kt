@@ -59,6 +59,7 @@ enum class RequestMethod {
 sealed class JobStepResult {
     data class ContinueWith(val tasks: List<ClientTask>, val state: State? = null) : JobStepResult()
     data class CompleteWith<META: Info,DATA: Info>(val result: ExtractResult<META, DATA>, val state: State? = null) : JobStepResult()
+    data class FailWith(val fatalError: ErrorDetail) : JobStepResult()
 }
 
 fun String.isDefaultTask(): Boolean = this == "default"
