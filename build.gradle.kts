@@ -18,7 +18,7 @@ plugins {
     id("maven-publish")
 }
 
-version = "5.0.0-alpha3"
+version = "5.0.0-alpha4"
 group = "project.pipepipe"
 
 kotlin {
