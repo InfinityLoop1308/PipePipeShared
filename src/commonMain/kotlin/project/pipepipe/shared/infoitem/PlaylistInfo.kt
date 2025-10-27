@@ -14,5 +14,6 @@ data class PlaylistInfo(
     var streamCount: Long = 0,
     // Local properties
     var isPinned: Boolean = false,
-    var uid: Long? = null
+    var uid: Long? = null,
+    var shouldUseSecondaryColor: Boolean = false
 ): Info
