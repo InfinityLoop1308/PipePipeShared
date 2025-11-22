@@ -46,7 +46,8 @@ data class StreamInfo(
     val joinId: Long? = null,
     val localLastViewDate: Long? = null,
     val localRepeatCount: Long? = null,
-    var headers: HashMap<String, String> = hashMapOf()
+    var headers: HashMap<String, String> = hashMapOf(),
+    val isNew: Boolean = false
 ) : Info {
 
     override fun toString(): String =
