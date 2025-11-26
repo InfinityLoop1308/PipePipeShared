@@ -13,7 +13,8 @@ data class VideoStream(
     val height: Int,
     val frameRate: String,
     val indexRange: String,
-    val initialization: String
+    val initialization: String,
+    val isHdr: Boolean = false
 )
 
 @Serializable
