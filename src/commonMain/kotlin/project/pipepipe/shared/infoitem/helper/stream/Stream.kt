@@ -28,6 +28,7 @@ data class AudioStream(
     val initialization: String,
     val samplingRate: String? = null,
     val language: String? = null,
+    val isDefault: Boolean = false
 )
 
 @Serializable
