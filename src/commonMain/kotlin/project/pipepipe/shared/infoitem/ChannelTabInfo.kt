@@ -6,7 +6,7 @@ enum class ChannelTabType {
     VIDEOS,
     TRACKS,
     SHORTS,
-    LIVES,
+    LIVE,
     CHANNELS,
     PLAYLISTS,
     ALBUMS,
