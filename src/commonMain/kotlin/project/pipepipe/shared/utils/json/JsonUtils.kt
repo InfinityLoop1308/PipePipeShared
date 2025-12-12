@@ -166,6 +166,7 @@ fun JsonNode.requireArray(index: Int): JsonNode {
 
 // Object methods
 fun JsonNode.requireObject(fieldName: String): JsonNode {
+    if (fieldName == "/") return this
     val node = if (fieldName.startsWith("/")) this.at(fieldName) else this.path(fieldName)
     if (node.isMissingNode || node.isNull) {
         throw IllegalArgumentException("Required field '$fieldName' is missing or null")
