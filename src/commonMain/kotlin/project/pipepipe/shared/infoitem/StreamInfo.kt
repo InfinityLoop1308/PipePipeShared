@@ -9,7 +9,7 @@ data class StreamInfo(
     val serviceId: String,
     var name: String? = null,
 
-    var streamType: StreamType = StreamType.NONE,
+    var isLive: Boolean = false,
     var uploaderName: String? = null,
     var uploaderUrl: String? = null,
     var uploaderAvatarUrl: String? = null,
