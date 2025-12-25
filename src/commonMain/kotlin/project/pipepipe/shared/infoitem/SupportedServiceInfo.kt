@@ -13,7 +13,8 @@ enum class ExternalUrlType {
 
 @Serializable
 data class SupportedServiceInfo(
-    val serviceId: String,
+    val serviceId: Int,
+    val serviceName: String,
     val availableSearchTypes: List<SearchType>? = null,
     val suggestionPayload: Payload? = null,
     val suggestionStringPath: Pair<String, String>? = null,

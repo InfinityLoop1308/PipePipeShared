@@ -13,7 +13,7 @@ val Info.url: String
         else -> error("Info doesn't have url")
     }
 
-val Info.serviceId: String?
+val Info.serviceId: Int?
     get() = when (this) {
         is StreamInfo -> serviceId
         is ChannelInfo -> serviceId

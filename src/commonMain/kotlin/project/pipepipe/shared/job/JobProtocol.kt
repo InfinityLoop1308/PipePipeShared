@@ -7,7 +7,7 @@ import project.pipepipe.shared.state.State
 data class JobRequest(
     val sessionId: String? = null,
     val jobType: SupportedJobType,
-    val serviceId: String? = null,
+    val serviceId: Int? = null,
     val url: String? = null,
     val results: List<TaskResult>? = null,
     val cookie: String? = null,

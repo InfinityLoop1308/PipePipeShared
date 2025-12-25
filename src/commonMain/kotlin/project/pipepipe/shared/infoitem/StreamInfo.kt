@@ -6,7 +6,7 @@ import project.pipepipe.shared.infoitem.helper.stream.*
 @Serializable
 data class StreamInfo(
     val url: String,
-    val serviceId: String,
+    val serviceId: Int,
     var name: String? = null,
 
     var isLive: Boolean = false,

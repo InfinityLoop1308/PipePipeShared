@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 data class ChannelInfo(
     val url: String,
     val name: String,
-    val serviceId: String,
+    val serviceId: Int,
     var thumbnailUrl: String? = null,
     var description: String? = null,
     var subscriberCount: Long? = null,
